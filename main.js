@@ -192,6 +192,8 @@ const game = (function() {
 
   // Starts the first game when names are chosen
   function firstGame() {
+    if (playerOneName.value.length < 1 || playerTwoName.value.length < 1) return alert('Please fill in all the fields');
+    if (playerOneName.value.length > 20 || playerTwoName.value.length > 20) return alert('Those names are too long! Max of 20 characers');
     player1 = player(playerOneName.value, 'X');
     player2 = player(playerTwoName.value, 'O');
     gameDialog.remove();
