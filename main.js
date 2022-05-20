@@ -18,7 +18,7 @@ const gameBoard = (function() {
   };
 
   // Add a click listener to each tile
-  function _addClickListeners() {
+  function addClickListeners() {
     gameTiles.forEach(tile => {
       tile.addEventListener('click', _clickListener);
     })
@@ -104,7 +104,11 @@ const gameBoard = (function() {
     };
   };
 
-  _addClickListeners();
+  // Clears the board
+  function clearBoard() {
+    gameBoard = ["", "", "", "", "", "", "", "", ""];
+    render();
+  };
 
   return {
     gameBoard,
@@ -112,12 +116,17 @@ const gameBoard = (function() {
     checkXWin,
     checkOWin,
     checkForTie,
-    removeClickListeners
+    addClickListeners,
+    removeClickListeners,
+    clearBoard
   };
 })();
 
 const game = (function() {
   const gameInfoText = document.querySelector('#gameInfo');
+  const startGameBtn = document.querySelector('#startGame');
+
+  startGameBtn.addEventListener('click', () => startGame());
 
   // Generate 2 players
   const player1 = player('player1', 'X')
@@ -153,17 +162,26 @@ const game = (function() {
     const checkTie = gameBoard.checkForTie();
     if (checkX === true) {
       gameBoard.removeClickListeners();
-      gameInfoText.innerHTML = `${player1.getName()} won!`
+      gameInfoText.innerHTML = `${player1.getName()} won!`;
       return true;
     } else if (checkO === true) {
       gameBoard.removeClickListeners();
-      gameInfoText.innerHTML = `${player2.getName()} won!`
+      gameInfoText.innerHTML = `${player2.getName()} won!`;
       return true;
     } else if (checkTie === true) {
       gameBoard.removeClickListeners();
-      gameInfoText.innerHTML = "It's a tie!"
+      gameInfoText.innerHTML = "It's a tie!";
       return true;
     };
+  };
+
+  // Clears the board and starts the game
+  function startGame() {
+    turn = 'player1';
+    gameBoard.clearBoard();
+    gameBoard.addClickListeners();
+    startGameBtn.innerHTML = 'Restart Game';
+    gameInfoText.innerHTML = `${player1.getName()}'s Turn`;
   };
 
   return {

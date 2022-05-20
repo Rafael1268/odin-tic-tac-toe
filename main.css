@@ -24,6 +24,19 @@ h2 {
   color: #5F7161;
 }
 
+button {
+  background-color: #6D8B74;
+  color: #EFEAD8;
+  font-size: 3rem;
+  font-weight: bold;
+  border: none;
+  border-bottom: 5px solid #5F7161;
+  border-right: 5px solid #5F7161;
+  border-radius: 15px;
+  margin: 40px 0;
+  padding: 10px 50px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
