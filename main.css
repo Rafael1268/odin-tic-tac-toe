@@ -78,3 +78,46 @@ button {
   font-size: 4.5rem;
   color: #5F7161;
 }
+
+dialog {
+  background-color: #D0C9C0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+dialog div {
+  margin-bottom: 25px;
+}
+
+dialog label {
+  color: #5F7161;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+dialog input {
+  background-color: #6D8B74;
+  color: #EFEAD8;
+  border-radius: 15px;
+  border: none;
+  font-size: 2rem;
+  font-weight:  bold;
+  margin-left: 10px;
+  margin-right: 122px;
+  padding: 10px 40px;
+}
+
+dialog input:focus {
+  outline: none;
+  background-color: #5F7161;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

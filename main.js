@@ -125,12 +125,19 @@ const gameBoard = (function() {
 const game = (function() {
   const gameInfoText = document.querySelector('#gameInfo');
   const startGameBtn = document.querySelector('#startGame');
+  const gameDialog = document.querySelector('#dialog');
+  const submitForm = document.querySelector('#submitForm');
+  const playerOneName = document.querySelector('#playerOneName');
+  const playerTwoName = document.querySelector('#playerTwoName');
 
   startGameBtn.addEventListener('click', () => startGame());
+  submitForm.addEventListener('click', () => firstGame());
+
+  gameDialog.show();
 
   // Generate 2 players
-  const player1 = player('player1', 'X')
-  const player2 = player('player2', 'O')
+  let player1;
+  let player2;
   let turn = 'player1';
 
   // Check which players turn it is and return their marker
@@ -180,8 +187,15 @@ const game = (function() {
     turn = 'player1';
     gameBoard.clearBoard();
     gameBoard.addClickListeners();
-    startGameBtn.innerHTML = 'Restart Game';
     gameInfoText.innerHTML = `${player1.getName()}'s Turn`;
+  };
+
+  // Starts the first game when names are chosen
+  function firstGame() {
+    player1 = player(playerOneName.value, 'X');
+    player2 = player(playerTwoName.value, 'O');
+    gameDialog.remove();
+    startGame();
   };
 
   return {

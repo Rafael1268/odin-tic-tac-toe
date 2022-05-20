@@ -24,7 +24,20 @@
       <div class="tile" id="7"></div>
       <div class="tile" id="8"></div>
     </div>
-    <button id="startGame">Start Game</button>
+    <button id="startGame">Restart Game</button>
+    <dialog id="dialog">
+      <form method="dialog">
+        <div>
+          <label for="playerOneName">P1 Name</label>
+          <input type="text" name="playerOneName" id="playerOneName" minlength="1" maxlength="20" required>
+        </div>
+        <div>
+          <label for="playerTwoName">P2 Name</label>
+          <input type="text" name="playerTwoName" id="playerTwoName" minlength="1" maxlength="20" required>
+        </div>
+        <button type="submit" id="submitForm">Start Game</button>
+      </form>
+    </dialog>
   </div>
   <script src="main.js"></script>
 </body>
