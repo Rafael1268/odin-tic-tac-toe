@@ -139,10 +139,10 @@ const game = (function() {
   function switchTurn() {
     if (turn === 'player1') {
       turn = 'player2';
-      gameInfoText.innerHTML = player2.getMarker();
+      gameInfoText.innerHTML = `${player2.getName()}'s Turn`;
     } else {
       turn = 'player1';
-      gameInfoText.innerHTML = player1.getMarker();
+      gameInfoText.innerHTML = `${player1.getName()}'s Turn`;
     };
   }
 
